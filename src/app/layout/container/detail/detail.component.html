@@ -1,0 +1,25 @@
+{{post|json}}
+<div class="form-group">
+    <label>titre</label>
+    <input [(ngModel)]="post.title" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input [(ngModel)]="post.description" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>salaire</label>
+    <input [(ngModel)]="post.salaire" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Type Contrat</label>
+    <select  [(ngModel)]="post.contract_type" class="form-control">
+      <option value="cdi" > CDI</option>
+      <option value="cdd" > CDD </option>
+      <option value="sivp"> SIVP </option>
+    </select> 
+  </div>
+  <div>
+      <button (click)="Annuler()" class="btn btn-danger" >Annuler</button>
+      <button (click)="updatePost()" class="btn btn-success">Valider</button>
+   </div>

@@ -1,0 +1,55 @@
+<button [disabled]="btnStatus" class="btn btn-success"> "test"</button>
+<!-- <img src="{{locatVar}}"> -->
+<img [src]="locatVar">
+
+<input [(ngModel)]="username">
+<p> Hello {{username}}</p>
+
+<button (click)="decrement()" class="btn btn-success">-</button>
+<span>{{counter}}</span>
+<button (click)="increment()" class="btn btn-danger">+</button>
+<hr>
+<div class="form-group">
+  <label>Name</label>
+  <input [(ngModel)]="name" class="form-control">
+</div>
+<div class="form-group" *ngIf="name=='wajdi'">
+  <label>Email</label>
+  <input [(ngModel)]="email" class="form-control">
+</div>
+<div class="form-group">
+  <label>Phone</label>
+  <input [(ngModel)]="phone" class="form-control">
+</div>
+<div class="form-group">
+  <label>About</label>
+  <input [(ngModel)]="about" class="form-control">
+</div>
+<div>
+    <button (click)="Annuler()" class="btn btn-danger" >Annuler</button>
+    <button (click)="valider()" class="btn btn-success" *ngIf="name!='' && name!=undefined">Valider</button>
+ </div>
+
+
+<table class="table">
+   <thead>
+     <tr>
+       <td>Recherche</td>
+       <td><input [(ngModel)]="serchByName" class="form-control" placeholder="rechercher par nom"></td>
+       <td><input [(ngModel)]="serchById" class="form-control" placeholder="rechercher par identifiant"></td>
+     </tr>
+     <tr>
+       <td > id</td> 
+       <td>Name</td>
+       <td>Action</td>
+    </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let hereo of HEROES | serach:serchByName | serachId: serchById" [ngClass]="{red:hereo.name=='Superman',black:hereo.name=='Batman',green:hereo.name=='Flash'}">
+       <td>{{hereo.id}}</td>
+       <td>{{hereo.name}}</td>
+       <td><mat-checkbox>Check me!</mat-checkbox>
+       </td>
+     </tr>
+   </tbody>
+ </table>

@@ -1,0 +1,27 @@
+{{'hello'|translate}}
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Recherche</td>
+        <td><input [(ngModel)]="serchByName" class="form-control" placeholder="rechercher par nom"></td>
+        <td><input [(ngModel)]="serchById" class="form-control" placeholder="rechercher par identifiant"></td>
+      </tr>
+      <tr>
+        <td >{{'title'|translate}}</td> 
+        <td>Contrat</td>
+        <td>Statut</td>
+        <td>Actions</td>
+     </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of results">
+        <td>{{result.title}}</td>
+        <td>{{result.contract_type}}</td>
+        <td>{{result.status}}</td>
+        <td>
+          <i class="fa fa-pencil-square-o" aria-hidden="true" [routerLink]='["detail",result._id]'></i>|
+          <i class="fa fa-trash-o" aria-hidden="true" (click)="delete(result._id)"></i>
+        </td>
+       </tr>
+    </tbody>
+  </table>
